@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="coZ-qi-TFY">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Отзывы-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ReviewsViewController" customModule="CarSale" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="vXp-ia-IsV">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="pGp-97-hrX"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="5Sj-LL-QiR"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="vXp-ia-IsV" secondAttribute="bottom" id="7h8-MU-ONZ"/>
+                            <constraint firstItem="vXp-ia-IsV" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="S4M-fQ-rzk"/>
+                            <constraint firstItem="vXp-ia-IsV" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="WKA-nl-IGm"/>
+                            <constraint firstAttribute="trailing" secondItem="vXp-ia-IsV" secondAttribute="trailing" id="ury-kZ-sLI"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Отзывы" id="eC1-y6-RYh"/>
+                    <connections>
+                        <outlet property="tableView" destination="vXp-ia-IsV" id="Y87-r2-LU9"/>
+                        <segue destination="DhK-bI-c8f" kind="show" identifier="passDataReviewsDetail" id="zUy-TI-qD4"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="932" y="-671.51424287856082"/>
+        </scene>
+        <!--Мои объявления-->
+        <scene sceneID="hkA-O0-v7k">
+            <objects>
+                <viewController id="UVu-5h-Kyf" customClass="AddCarViewController" customModule="CarSale" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="RLW-FC-Gg8"/>
+                        <viewControllerLayoutGuide type="bottom" id="Qtt-O7-CAX"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Xts-pe-RJr">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="e48-xd-e7M">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="UVu-5h-Kyf" id="zp0-3t-tcg"/>
+                                    <outlet property="delegate" destination="UVu-5h-Kyf" id="Eck-tw-GZB"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="e48-xd-e7M" firstAttribute="leading" secondItem="Xts-pe-RJr" secondAttribute="leading" id="3W8-SK-74s"/>
+                            <constraint firstAttribute="bottom" secondItem="e48-xd-e7M" secondAttribute="bottom" id="bQQ-QJ-AOF"/>
+                            <constraint firstItem="e48-xd-e7M" firstAttribute="top" secondItem="Xts-pe-RJr" secondAttribute="top" id="jvv-6u-cjM"/>
+                            <constraint firstAttribute="trailing" secondItem="e48-xd-e7M" secondAttribute="trailing" id="x89-UE-DDo"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Мои объявления" id="npu-Ow-OqA"/>
+                    <connections>
+                        <outlet property="tableView" destination="e48-xd-e7M" id="9FQ-yc-OrP"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dJB-bb-MGb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3093.5999999999999" y="-671.51424287856082"/>
+        </scene>
+        <!--Form Create Car View Controller-->
+        <scene sceneID="1RB-Z4-Cyi">
+            <objects>
+                <viewController id="S3w-Jf-ibD" customClass="FormCreateCarViewController" customModule="CarSale" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="lzT-eA-FqM"/>
+                        <viewControllerLayoutGuide type="bottom" id="Vex-wO-zkx"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="qT6-ww-0dl">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="yRQ-f2-7Aj"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="snX-uy-iXd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3094" y="31"/>
+        </scene>
+        <!--Form Fill Car View Controller-->
+        <scene sceneID="YcF-EF-2dB">
+            <objects>
+                <viewController storyboardIdentifier="FillMachine" id="rY3-Lb-72q" customClass="FormFillCarViewController" customModule="CarSale" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="M98-Hg-5kb"/>
+                        <viewControllerLayoutGuide type="bottom" id="zEc-Xz-SM3"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="M0B-7U-hUe">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="UK2-Ee-ThY">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="d4W-es-mvb" customClass="FillMachineFormViewCell" customModule="CarSale" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="d4W-es-mvb" id="BG1-9E-eiE">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="title" destination="BG1-9E-eiE" id="rkT-MY-dfn"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="UK2-Ee-ThY" firstAttribute="leading" secondItem="M0B-7U-hUe" secondAttribute="leading" id="Cm9-Bd-atZ"/>
+                            <constraint firstItem="UK2-Ee-ThY" firstAttribute="top" secondItem="M0B-7U-hUe" secondAttribute="top" id="IPw-RU-PkK"/>
+                            <constraint firstAttribute="trailing" secondItem="UK2-Ee-ThY" secondAttribute="trailing" id="cZ7-Mu-bYN"/>
+                            <constraint firstItem="zEc-Xz-SM3" firstAttribute="top" secondItem="UK2-Ee-ThY" secondAttribute="bottom" id="dEr-mm-Xbd"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="vNe-Yf-aFe"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aku-97-FTU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3757.5999999999999" y="29.23538230884558"/>
+        </scene>
+        <!--Отзыв-->
+        <scene sceneID="YeK-ui-co0">
+            <objects>
+                <viewController title="Отзыв" id="DhK-bI-c8f" customClass="ReviewsDetailViewController" customModule="CarSale" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="T9X-go-1cH"/>
+                        <viewControllerLayoutGuide type="bottom" id="pI0-sK-gLc"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="r5h-QD-qu4">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="70" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hY5-Z4-Ogj">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="ReviewsDetailCell" rowHeight="70" id="ou4-Lh-jIy" customClass="ReviewsDetailViewCell" customModule="CarSale" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="70"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ou4-Lh-jIy" id="o9Y-rW-0aP">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="69.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <sections/>
+                                <connections>
+                                    <outlet property="dataSource" destination="DhK-bI-c8f" id="fSg-7c-M12"/>
+                                    <outlet property="delegate" destination="DhK-bI-c8f" id="EIt-gS-hvN"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="hY5-Z4-Ogj" secondAttribute="trailing" id="ZFg-6n-krN"/>
+                            <constraint firstItem="hY5-Z4-Ogj" firstAttribute="leading" secondItem="r5h-QD-qu4" secondAttribute="leading" id="kUO-ZV-TYy"/>
+                            <constraint firstAttribute="bottom" secondItem="hY5-Z4-Ogj" secondAttribute="bottom" id="oma-HF-uZ7"/>
+                            <constraint firstItem="hY5-Z4-Ogj" firstAttribute="top" secondItem="r5h-QD-qu4" secondAttribute="top" id="xin-Et-az0"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="hY5-Z4-Ogj" id="hGc-W9-14A"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Iiz-T7-7aF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="932" y="48"/>
+        </scene>
+        <!--Отзывы-->
+        <scene sceneID="bau-Vh-BLm">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="CPo-Os-nHW" customClass="NavigationController" customModule="CarSale" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Отзывы" image="hand" id="YxL-Xn-0tg"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Tlw-OX-l1B">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="pDh-3O-sia"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cfS-Dj-BO4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1668" y="-672"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="LUd-pQ-NCR">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="coZ-qi-TFY" customClass="TabBarController" customModule="CarSale" customModuleProvider="target" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="mSt-6m-mhM">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="CPo-Os-nHW" kind="relationship" relationship="viewControllers" id="ttO-e5-FyO"/>
+                        <segue destination="dfm-Qw-FSf" kind="relationship" relationship="viewControllers" id="qNO-dZ-8aJ"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jAX-JC-Zxh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1986" y="-1406"/>
+        </scene>
+        <!--Объявление-->
+        <scene sceneID="CoU-3I-0RJ">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="dfm-Qw-FSf" customClass="NavigationController" customModule="CarSale" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Объявление" image="add" id="lXa-Eh-ndZ"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="2Am-Ih-HvN">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="UVu-5h-Kyf" kind="relationship" relationship="rootViewController" id="08M-2O-XUE"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tLC-3S-rNf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2388" y="-670"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Dc3-ws-dC7">
+            <objects>
+                <navigationController storyboardIdentifier="AddCar" automaticallyAdjustsScrollViewInsets="NO" id="NJh-2t-YeR" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="e9T-9r-a5G">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="S3w-Jf-ibD" kind="relationship" relationship="rootViewController" id="ZuT-oD-mKe"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fDM-JK-com" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2388" y="31"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="add" width="24" height="24"/>
+        <image name="hand" width="24" height="24"/>
+    </resources>
+</document>
