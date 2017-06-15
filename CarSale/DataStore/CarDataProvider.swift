@@ -31,6 +31,7 @@ protocol LoadImageCarProtocol: class {
 class CarDataManager: GetCarsProtocol, LoadImageCarProtocol {
     
     static let instance = CarDataManager()
+    
     private let path = "http://ec2-34-209-34-16.us-west-2.compute.amazonaws.com/api/"
     var request = Alamofire.request
     

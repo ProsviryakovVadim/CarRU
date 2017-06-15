@@ -103,7 +103,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="snX-uy-iXd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3094" y="31"/>
+            <point key="canvasLocation" x="3093.5999999999999" y="30.134932533733135"/>
         </scene>
         <!--Form Fill Car View Controller-->
         <scene sceneID="YcF-EF-2dB">
@@ -116,32 +116,7 @@
                     <view key="view" contentMode="scaleToFill" id="M0B-7U-hUe">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="UK2-Ee-ThY">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="d4W-es-mvb" customClass="FillMachineFormViewCell" customModule="CarSale" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="d4W-es-mvb" id="BG1-9E-eiE">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                        <connections>
-                                            <outlet property="title" destination="BG1-9E-eiE" id="rkT-MY-dfn"/>
-                                        </connections>
-                                    </tableViewCell>
-                                </prototypes>
-                            </tableView>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="UK2-Ee-ThY" firstAttribute="leading" secondItem="M0B-7U-hUe" secondAttribute="leading" id="Cm9-Bd-atZ"/>
-                            <constraint firstItem="UK2-Ee-ThY" firstAttribute="top" secondItem="M0B-7U-hUe" secondAttribute="top" id="IPw-RU-PkK"/>
-                            <constraint firstAttribute="trailing" secondItem="UK2-Ee-ThY" secondAttribute="trailing" id="cZ7-Mu-bYN"/>
-                            <constraint firstItem="zEc-Xz-SM3" firstAttribute="top" secondItem="UK2-Ee-ThY" secondAttribute="bottom" id="dEr-mm-Xbd"/>
-                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="vNe-Yf-aFe"/>
                 </viewController>

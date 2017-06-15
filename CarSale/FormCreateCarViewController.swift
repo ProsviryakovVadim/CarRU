@@ -9,18 +9,20 @@
 import UIKit
 import ImagePicker
 import Lightbox
+import RxCocoa
+import RxCocoa
 
 class FormCreateCarViewController: UIViewController, ImagePickerDelegate, UINavigationControllerDelegate {
     
     private var tableView = UITableView()
+    let fields = ["Марка","Модель","Выбрать фотографии"]
+    let send = ["Отправить данные"]
+    
     var imageFromCamera = [UIImage]()
-    var carDataManager = CarDataManager()
-
     var dataForm = Form()
     var colorForCellUnselected = UIColor(red: 237, green: 237, blue: 237)
     
-    let fields = ["Марка","Модель","Выбрать фотографии"]
-    let send = ["Отправить данные"]
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,7 +42,6 @@ class FormCreateCarViewController: UIViewController, ImagePickerDelegate, UINavi
         tableView.register(ReviewsDetailCollectionCell.self, forCellReuseIdentifier: "NewFormCell")
         view.addSubview(tableView)
         setupNavBarButtons()
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -225,7 +226,7 @@ extension FormCreateCarViewController: UITableViewDelegate {
     }
     
     func prepareRequest() {
-        carDataManager.prepareRequest(image: imageFromCamera, mark: dataForm.mark!, model: dataForm.model!)
+        CarDataManager.instance.prepareRequest(image: imageFromCamera, mark: dataForm.mark!, model: dataForm.model!)
         handleClose()
     }
     

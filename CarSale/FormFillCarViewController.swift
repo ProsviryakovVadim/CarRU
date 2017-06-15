@@ -21,20 +21,17 @@ enum Fields {
 
 class FormFillCarViewController: UIViewController, UINavigationControllerDelegate   {
     
-    var tableView = UITableView()
-    var fieldSelected: String?
-    var formView: FormCreateCarViewController!
-    
-    var dataSource: [Models] = []
-    var carDataManager = CarDataManager()
+    private var tableView = UITableView()
+    private let cellString = String(describing: FormFillCarViewController.self)
     let disposeBag = DisposeBag()
-    
-    
+    var formView: FormCreateCarViewController!
+    var fieldSelected: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
         getMarks()
+        setupDelegate()
     }
     
     
@@ -42,8 +39,8 @@ class FormFillCarViewController: UIViewController, UINavigationControllerDelegat
         navigationController?.delegate = self
         navigationController?.navigationBar.isTranslucent = false
         tableView = UITableView(frame: self.view.bounds, style: UITableViewStyle.plain)
-        tableView.dataSource = self
-        tableView.delegate = self
+        tableView.tableFooterView = UIView(frame: CGRect.zero)
+        tableView.register(FormFillCarCell.self, forCellReuseIdentifier: cellString)
         tableView.contentInset = UIEdgeInsetsMake(8, 0, 0, 0)
         tableView.backgroundColor = UIColor(red: 237, green: 237, blue: 237)
         view.addSubview(tableView)
@@ -52,64 +49,58 @@ class FormFillCarViewController: UIViewController, UINavigationControllerDelegat
     
     func getMarks() {
         KVNProgress.show()
-        _ = carDataManager.getMarks().subscribe(onNext: {(models) in
-            self.dataSource = models
+        _ = CarDataManager.instance.getMarks().subscribe(onNext: {(models) in
+            self.setupDataSource(models: models)
             DispatchQueue.main.async {
                 self.tableView.reloadData()
                 KVNProgress.dismiss()
             }
         })
     }
-}
-
-
-
-
-//MARK: UITableViewDataSource
-extension FormFillCarViewController: UITableViewDataSource {
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        switch fieldSelected {
-        case Fields.mark?:
-            return dataSource.count
-        case Fields.model?:
-            return !dataSource.isEmpty ? dataSource[formView.dataForm.indexSelected!].model!.count : 0
-        default:
-            return 0
-        }
-    }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: "Cell")
-        switch fieldSelected {
+    //MARK: UITableViewDataSource
+    func setupDataSource(models: [Models]) {
+        switch self.fieldSelected {
         case Fields.mark?:
-            cell.textLabel?.text = dataSource[indexPath.row].title
+            let markToCell = Observable.just(models.map {$0.title})
+            markToCell.bind(to: tableView.rx.items(cellIdentifier: cellString, cellType: FormFillCarCell.self)) { row, mark, cell in
+                
+                cell.titleFormFillCar.text = mark
+                }.addDisposableTo(disposeBag)
+            
+            
         case Fields.model?:
-            cell.textLabel?.text = dataSource[formView.dataForm.indexSelected!].model?[indexPath.row]
-        default:
-            cell.textLabel?.text = Fields.notFound
-        }
-        return cell
-        
-    }
-}
-
-
-//MARL: UITableViewDelegate
-extension FormFillCarViewController: UITableViewDelegate {
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        switch fieldSelected {
-        case Fields.mark?:
-            formView.dataForm.mark = dataSource[indexPath.row].title!
-            formView.dataForm.indexSelected = indexPath.row
-            formView.dataForm.model?.removeAll()
-        case Fields.model?:
-            formView.dataForm.model = dataSource[formView.dataForm.indexSelected!].model?[indexPath.row]
+            let modelToCell = Observable.just(models[self.formView.dataForm.indexSelected!].model!)
+            modelToCell.bind(to: tableView.rx.items(cellIdentifier: cellString, cellType: FormFillCarCell.self)) { row, model, cell in
+                
+                cell.titleFormFillCar.text = model
+                }.addDisposableTo(disposeBag)
+            
         default: break
         }
-        handleClose()
-        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    ////MARL: UITableViewDelegate
+    func setupDelegate() {
+        tableView.rx.modelSelected(String.self)
+            .subscribe(onNext: {(models) in
+                
+                if let selectedRowIndexPath = self.tableView.indexPathForSelectedRow {
+                    self.tableView.deselectRow(at: selectedRowIndexPath, animated: true)
+                    
+                    switch self.fieldSelected {
+                    case Fields.mark?:
+                        self.formView.dataForm.mark = models
+                        self.formView.dataForm.indexSelected = selectedRowIndexPath.row
+                        self.formView.dataForm.model?.removeAll()
+                    case Fields.model?:
+                        self.formView.dataForm.model = models
+                    default: break
+                    }
+                    self.handleClose()
+                }
+            }).addDisposableTo(disposeBag)
     }
     
     func closePage() {
@@ -121,12 +112,3 @@ extension FormFillCarViewController: UITableViewDelegate {
         self.dismiss(animated: true, completion: nil)
     }
 }
-
-
-final class FillMachineFormViewCell: UITableViewCell {
-    @IBOutlet weak var title: UIView!
-}
-
-
-
-

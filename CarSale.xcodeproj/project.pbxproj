@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		5FCF42AF8A9D273BE9D3B814 /* Pods_CarSale.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67699E4882DF4C0363B13F98 /* Pods_CarSale.framework */; };
+		DD1CA49A1EF1D7EF0086853F /* FormCreateCarField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1CA4991EF1D7EF0086853F /* FormCreateCarField.swift */; };
+		DD1CA49D1EF3183C0086853F /* FormFillCarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1CA49C1EF3183C0086853F /* FormFillCarCell.swift */; };
 		DD1F431C1EE9408100169C87 /* FormCreateCarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1F431B1EE9408100169C87 /* FormCreateCarViewModel.swift */; };
 		DD91D6D61EDDB826002D9D55 /* ReviewsDetaiPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD91D6D51EDDB826002D9D55 /* ReviewsDetaiPresenter.swift */; };
 		DD91D6D81EDDC27D002D9D55 /* ReviewsDetailAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD91D6D71EDDC27D002D9D55 /* ReviewsDetailAssembly.swift */; };
@@ -51,6 +53,8 @@
 		67699E4882DF4C0363B13F98 /* Pods_CarSale.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CarSale.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8DEA145706F023D39430912B /* Pods-CarSale.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CarSale.release.xcconfig"; path = "Pods/Target Support Files/Pods-CarSale/Pods-CarSale.release.xcconfig"; sourceTree = "<group>"; };
 		93A4B1BEA4A18F8D71B22D20 /* Pods-CarSale.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CarSale.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CarSale/Pods-CarSale.debug.xcconfig"; sourceTree = "<group>"; };
+		DD1CA4991EF1D7EF0086853F /* FormCreateCarField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FormCreateCarField.swift; path = ../FormCreateCarField.swift; sourceTree = "<group>"; };
+		DD1CA49C1EF3183C0086853F /* FormFillCarCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormFillCarCell.swift; sourceTree = "<group>"; };
 		DD1F431B1EE9408100169C87 /* FormCreateCarViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormCreateCarViewModel.swift; sourceTree = "<group>"; };
 		DD91D6D51EDDB826002D9D55 /* ReviewsDetaiPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewsDetaiPresenter.swift; sourceTree = "<group>"; };
 		DD91D6D71EDDC27D002D9D55 /* ReviewsDetailAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewsDetailAssembly.swift; sourceTree = "<group>"; };
@@ -119,6 +123,14 @@
 				67699E4882DF4C0363B13F98 /* Pods_CarSale.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DD1CA49B1EF318240086853F /* FormFillCarCell */ = {
+			isa = PBXGroup;
+			children = (
+				DD1CA49C1EF3183C0086853F /* FormFillCarCell.swift */,
+			);
+			name = FormFillCarCell;
 			sourceTree = "<group>";
 		};
 		DD91D6D91EDEB334002D9D55 /* VIPER */ = {
@@ -281,16 +293,17 @@
 				DDA1BCFE1EE00FB000ECB952 /* Marks.swift */,
 				DDBA721B1EDC2621003C460E /* Car.swift */,
 				DDC0F54E1EE5A70000D1898F /* Form.swift */,
+				DD1CA4991EF1D7EF0086853F /* FormCreateCarField.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
 		};
-		DDBA72221EDC2621003C460E /* DataProvider */ = {
+		DDBA72221EDC2621003C460E /* CarDataManager */ = {
 			isa = PBXGroup;
 			children = (
 				DDBA72231EDC2621003C460E /* CarDataProvider.swift */,
 			);
-			name = DataProvider;
+			name = CarDataManager;
 			path = DataStore;
 			sourceTree = "<group>";
 		};
@@ -362,6 +375,7 @@
 		DDC0F5471EE58D0000D1898F /* FormFillCar */ = {
 			isa = PBXGroup;
 			children = (
+				DD1CA49B1EF318240086853F /* FormFillCarCell */,
 				DDA1BD001EE00FBB00ECB952 /* FormFillCarViewController.swift */,
 			);
 			name = FormFillCar;
@@ -410,7 +424,7 @@
 				DDBA723C1EDD6CAA003C460E /* Extension */,
 				DDBA72391EDD6C2F003C460E /* Controller */,
 				DDBA72191EDC2621003C460E /* Model */,
-				DDBA72221EDC2621003C460E /* DataProvider */,
+				DDBA72221EDC2621003C460E /* CarDataManager */,
 				DD91D6D91EDEB334002D9D55 /* VIPER */,
 				DDC0F5461EE58C8100D1898F /* MVVM */,
 			);
@@ -547,8 +561,10 @@
 				DDA1BCEB1EDF0E1400ECB952 /* ReviewsDetailViewCell.swift in Sources */,
 				DD91D6D81EDDC27D002D9D55 /* ReviewsDetailAssembly.swift in Sources */,
 				DDBA72271EDC2621003C460E /* ReviewsInteractor.swift in Sources */,
+				DD1CA49D1EF3183C0086853F /* FormFillCarCell.swift in Sources */,
 				DDBA723E1EDD6CD9003C460E /* String+Extension.swift in Sources */,
 				DDA1BCE11EDEDA4100ECB952 /* ReviewsDetailCollectionCell.swift in Sources */,
+				DD1CA49A1EF1D7EF0086853F /* FormCreateCarField.swift in Sources */,
 				DDBA724F1EDD8FDF003C460E /* AddCarViewController.swift in Sources */,
 				DDA1BCE41EDEE75D00ECB952 /* Date+Extension.swift in Sources */,
 				DDA1BCF51EDF1CE000ECB952 /* AddCarTableViewCell.swift in Sources */,
