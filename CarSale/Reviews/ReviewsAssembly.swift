@@ -12,23 +12,23 @@ final class ReviewsAssembly {
     static let sharedInstanceReviews = ReviewsAssembly()
     
     func configure(_ viewController: ReviewsViewController) {
-        let carDataManager = CarDataManager()
-        let interactor = ReviewsInteractor()
-        let presenter = ReviewsPresenter()
-        let router = ReviewsRouter()
+        let carDataManager    = CarDataManager()
+        let reviewsInteractor = ReviewsInteractor()
+        let reviewsPresenter  = ReviewsPresenter()
+        let reviewsRouter     = ReviewsRouter()
         
         //Router
-        router.view = viewController
-        presenter.router = router
+        reviewsRouter.reviewsViewController = viewController
+        reviewsPresenter.reviewsRouterInput = reviewsRouter
         
         //View
-        viewController.presenter = presenter
-        presenter.view = viewController
+        viewController.reviewsViewControllerOutput = reviewsPresenter
+        reviewsPresenter.reviewsViewControllerInput = viewController
         
         //Present - Interactor - DataStore (Entity)
-        presenter.interactor = interactor
-        interactor.presenter = presenter
-        interactor.apiDataProvider = carDataManager
+        reviewsPresenter.reviewsInteractorInput = reviewsInteractor
+        reviewsInteractor.reviewsInteractorOutput = reviewsPresenter
+        reviewsInteractor.carDataManagerDelegte = carDataManager
     }
 }
 

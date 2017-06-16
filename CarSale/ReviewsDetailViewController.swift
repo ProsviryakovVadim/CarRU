@@ -21,7 +21,7 @@ protocol ReviewsDetailViewControllerOutput: class {
 final class ReviewsDetailViewController: UIViewController, ReviewsDetailViewControllerInput {
     
     @IBOutlet weak var tableView: UITableView!
-    var presenter: ReviewsDetailViewControllerOutput!
+    var reviewsDetailViewControllerOutput: ReviewsDetailViewControllerOutput!
     var car: Car?
     var imageCar: [UIImage]?
     
@@ -35,7 +35,7 @@ final class ReviewsDetailViewController: UIViewController, ReviewsDetailViewCont
         tableView.separatorStyle = .none
         tableView.register(ReviewsDetailViewCell.self as AnyClass, forCellReuseIdentifier: "ReviewsDetailCell")
         tableView.register(ReviewsDetailCollectionCell.self, forCellReuseIdentifier: "NewFormCell")
-        self.presenter.loadOriginalImage()
+        self.reviewsDetailViewControllerOutput.loadOriginalImage()
     }
     
     func displayCarInformation(_ info: Car, _ image: [UIImage]) {

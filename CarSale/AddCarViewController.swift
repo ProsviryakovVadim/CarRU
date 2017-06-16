@@ -9,21 +9,24 @@
 
 import UIKit
 
-class AddCarViewController: UIViewController, AddCarViewProtocol {
+class AddCarViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
-    var presenter: AddCarPresenterProtocol?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupTableView()
+        setupMenuBar()
+        setupNavBarButtons()
+    }
+    
+    func setupTableView() {
         tableView.contentInset = UIEdgeInsetsMake(50, 0, 0, 0)
         tableView.register(AddCarTableViewCell.self as AnyClass, forCellReuseIdentifier: "AddCell")
         tableView.rowHeight = 120
         tableView.tableFooterView = UIView(frame: CGRect.zero)
         tableView.backgroundColor = UIColor(red: 237, green: 237, blue: 237)
         tableView.separatorColor = UIColor(red: 237, green: 237, blue: 237)
-        setupMenuBar()
-        setupNavBarButtons()
     }
     
     //MARK: - Setup Menu Bar -
@@ -39,7 +42,6 @@ class AddCarViewController: UIViewController, AddCarViewProtocol {
 }
 
 //MARK: - UITableViewDataSource -
-
 extension AddCarViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 2
@@ -47,27 +49,11 @@ extension AddCarViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = AddCarTableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: "AddCell")
-        
-        switch indexPath.row {
-        case 0:
-            cell.addTextCar.text = "Сейчас возможно добавить только обьявление о продаже автомобиля"
-            cell.addButton.addTarget(self, action: #selector(buttonTouched(button:)), for: .touchUpInside)
-            cell.backgroundColor = UIColor(red: 255, green: 255, blue: 255)
-        case 1:
-            cell.addTextCar.text = "Нет добавленных объявлений"
-            cell.addTextCar.textColor = .darkGray
-            cell.addTextCar.backgroundColor = UIColor(red: 237, green: 237, blue: 237)
-            cell.addButton.isHidden = true
-            cell.backgroundColor = UIColor(red: 237, green: 237, blue: 237)
-        default:
-            print("")
-            
-        }
+        cell.setupCell(row: indexPath.row, target: self, buttonTouched: #selector(buttonTouched(button:)))
         return cell
     }
     
     //MARK: - Setup NavBarButtons -
-    
     func setupNavBarButtons() {
         let gearButton = UIImage(named: "gear")?.withRenderingMode(.alwaysOriginal)
         let gearBarButtonItem = UIBarButtonItem(image: gearButton, style: .plain, target: self, action: #selector(handleMore))
@@ -78,10 +64,8 @@ extension AddCarViewController: UITableViewDataSource {
     }
     
     func handleMore() {
-        
+        //TODO
     }
-    
-    //MARK: - ??? -
     
     func buttonTouched(button: UIButton) {
         let nextView = self.storyboard?.instantiateViewController(withIdentifier: "AddCar")
@@ -90,7 +74,6 @@ extension AddCarViewController: UITableViewDataSource {
 }
 
 //MARK: - UITableViewDelegate -
-
 extension AddCarViewController: UITableViewDelegate{
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         return UIView(frame: CGRect.zero)

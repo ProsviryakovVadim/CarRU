@@ -9,20 +9,11 @@
 import UIKit
 import KVNProgress
 
-protocol ReviewsDetailInteractorOutput: class {
-    func sendLoadedInfoCar(_ car: Car, _ image: [UIImage])
-}
-
-protocol ReviewsDetailInteractorInput: class {
-    func configureCarModel(_ carModel: Car)
-    func loadUIImageFromUrl()
-}
-
 final class ReviewsDetailInteractor: ReviewsDetailInteractorInput {
     
-    var presenter: ReviewsDetailInteractorOutput!
+    var reviewsDetailInteractorOutput: ReviewsDetailInteractorOutput!
     var carModel: Car?
-    var loadImageCar: LoadImageCarProtocol!
+    var loadImageCar: LoadImageCarDelegate!
     var url: NSURL?
     var images = [UIImage]()
     
@@ -43,7 +34,7 @@ final class ReviewsDetailInteractor: ReviewsDetailInteractorInput {
                 self.loadImageCar.loadImageFromUrl(self.url!) { (images, error) in
                     self.images.append(images!)
                     if self.images.count == urlImage.count {
-                        self.presenter.sendLoadedInfoCar(self.carModel!, self.images)
+                        self.reviewsDetailInteractorOutput.sendLoadedInfoCar(self.carModel!, self.images)
                         KVNProgress.dismiss()
                     }
                 }

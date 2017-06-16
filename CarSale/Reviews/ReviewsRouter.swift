@@ -15,12 +15,12 @@ protocol ReviewsRouterInput: class {
 
 class ReviewsRouter: ReviewsRouterInput {
     
-    weak var view: ReviewsViewController!
+    weak var reviewsViewController: ReviewsViewController!
     
     
     // MARK: - Navigation -
     func showDetailCarCell() {
-        self.view.performSegue(withIdentifier: "passDataReviewsDetail", sender: nil)
+        self.reviewsViewController.performSegue(withIdentifier: "passDataReviewsDetail", sender: nil)
     }
     
     func passDataReviewsDetail(_ segue: UIStoryboardSegue) {
@@ -30,10 +30,10 @@ class ReviewsRouter: ReviewsRouterInput {
     }
     
     func showReviewsDetailScene(_ segue: UIStoryboardSegue) {
-        if let selectedIndexPath = self.view.tableView.indexPathsForSelectedRows?.first {
-            let selectedCarModel = self.view.markCar?[selectedIndexPath.row]
+        if let selectedIndexPath = self.reviewsViewController.tableView.indexPathsForSelectedRows?.first {
+            let selectedCarModel = self.reviewsViewController.markCar?[selectedIndexPath.row]
             let showDetailViewController = segue.destination as! ReviewsDetailViewController
-                showDetailViewController.presenter.saveSelecterCarModel(selectedCarModel!)
+                showDetailViewController.reviewsDetailViewControllerOutput.saveSelecterCarModel(selectedCarModel!)
         }
     }
 }

@@ -44,4 +44,19 @@ class AddCarTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    func setupCell(row: Int, target: UIViewController, buttonTouched: Selector) {
+        switch row {
+        case 0:
+            addTextCar.text = "Сейчас возможно добавить только обьявление о продаже автомобиля"
+            addButton.addTarget(target, action: buttonTouched, for: .touchUpInside)
+            backgroundColor = UIColor(red: 255, green: 255, blue: 255)
+        case 1:
+            addTextCar.text = "Нет добавленных объявлений"
+            addTextCar.textColor = .darkGray
+            addTextCar.backgroundColor = UIColor(red: 237, green: 237, blue: 237)
+            addButton.isHidden = true
+            backgroundColor = UIColor(red: 237, green: 237, blue: 237)
+        default: break
+        }
+    }
 }

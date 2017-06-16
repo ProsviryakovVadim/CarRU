@@ -26,7 +26,7 @@ class FormFillCarViewController: UIViewController, UINavigationControllerDelegat
     let disposeBag = DisposeBag()
     var formView: FormCreateCarViewController!
     var fieldSelected: String?
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()

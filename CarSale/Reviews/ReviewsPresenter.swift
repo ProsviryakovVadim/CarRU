@@ -8,32 +8,28 @@
 
 import KVNProgress
 
-protocol ReviewsPresenterInput: ReviewsViewControllerOutput, ReviewsInteractorOutput {
-}
-
 class ReviewsPresenter: ReviewsPresenterInput {
     
-    weak var view: ReviewsViewControllerInput!
-    var interactor: ReviewsInteractorInput!
-    var router: ReviewsRouterInput!
+    weak var reviewsViewControllerInput: ReviewsViewControllerInput!
+    var reviewsInteractorInput: ReviewsInteractorInput!
+    var reviewsRouterInput: ReviewsRouterInput!
     
     func getCarsInteractor() {
         KVNProgress.show()
-        interactor.getCarsDataProvide()
+        reviewsInteractorInput.getCarsDataManager()
     }
     
     func provideCars(_ car: [Car]) {
         KVNProgress.dismiss()
-        self.view.displayCars(car)
+        self.reviewsViewControllerInput.displayCars(car)
     }
-    
     
     // MARK: - Changed View -
     func performSegueCarDetail () {
-        self.router.showDetailCarCell()
+        self.reviewsRouterInput.showDetailCarCell()
     }
     
     func passDataReviewsDetail(_ segue: UIStoryboardSegue) {
-        self.router.passDataReviewsDetail(segue)
+        self.reviewsRouterInput.passDataReviewsDetail(segue)
     }
 }

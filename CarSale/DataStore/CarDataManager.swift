@@ -6,7 +6,6 @@
 //  Copyright © 2017 Vadim Prosviryakov. All rights reserved.
 //
 
-import Foundation
 import Alamofire
 import SDWebImage
 import RxSwift
@@ -17,28 +16,11 @@ enum BackendError: Error {
     case objectSerialization(reason: String)
 }
 
-// MARK: - Protocol Car Model -
-protocol GetCarsProtocol: class {
-    func getCars () -> Observable<[Car]>
-    func getMarks() -> Observable<[Models]>
-}
-
-protocol LoadImageCarProtocol: class {
-    func loadImageFromUrl(_ url: NSURL, closure: @escaping (UIImage?, NSError?) -> Void)
-}
-
-// MARK: - CarDataStore -
-class CarDataManager: GetCarsProtocol, LoadImageCarProtocol {
+// MARK: - CarDataManager -
+class CarDataManager: CarDataManagerDelegte, LoadImageCarDelegate {
     
-    static let instance = CarDataManager()
-    
+    static  let instance = CarDataManager()
     private let path = "http://ec2-34-209-34-16.us-west-2.compute.amazonaws.com/api/"
-    var request = Alamofire.request
-    
-    struct Error {
-        static let invalidPrice = "price"
-    }
-    
     
     func getCars() -> Observable<[Car]> {
         return Observable.create({ (observer) -> Disposable in
@@ -80,7 +62,6 @@ class CarDataManager: GetCarsProtocol, LoadImageCarProtocol {
     
     
     func prepareRequest(image: [UIImage], mark: String, model: String) {
-        
         var imageData = Data()
         var imageString = [NSDictionary]()
         for img in image {
@@ -88,11 +69,15 @@ class CarDataManager: GetCarsProtocol, LoadImageCarProtocol {
             imageString.append(["source": "\(String(describing: imageData.base64EncodedString()))"])
         }
         
-        let json: [String: Any] =
-            ["vehicles":["mark": mark, "model": model, "price": "1000", "images": imageString]]
+        let json: [String: Any] = ["vehicles":
+                                    ["mark": mark,
+                                     "model": model,
+                                     "price": "1000",
+                                     "images": imageString]]
+        
         let jsonData = try? JSONSerialization.data(withJSONObject: json)
         // create post request
-        let url = URL(string: "http://ec2-34-209-34-16.us-west-2.compute.amazonaws.com/api/vehicles/")!
+        let url = URL(string: self.path + "vehicles/")!
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         // insert json data to the request
@@ -106,14 +91,7 @@ class CarDataManager: GetCarsProtocol, LoadImageCarProtocol {
         }
         task.resume()
     }
-    
-//    fileprivate func createMarkModelList() -> Models {
-//        
-//        
-//        let modelData = ModelList(title: String, model: [String])
-//        
-//        return modelData
-//    }
+
 
     
     //    func getCar(searchCarId: String, completionHandler: @escaping (NSError, Car?) -> Void) {

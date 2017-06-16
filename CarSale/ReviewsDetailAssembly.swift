@@ -11,19 +11,19 @@ final class ReviewsDetailAssembly {
     static let sharedInstanceReviewsDetail = ReviewsDetailAssembly()
     
     func configure(_ viewController: ReviewsDetailViewController) {
-        let loadImageCar: LoadImageCarProtocol = CarDataManager()
-        let interactor = ReviewsDetailInteractor()
-        let presenter = ReviewsDetailPresenter()
+        let loadImageCar: LoadImageCarDelegate = CarDataManager()
+        let reviewsDetailInteractor = ReviewsDetailInteractor()
+        let reviewsDetailPresenter = ReviewsDetailPresenter()
         
         // View
-        viewController.presenter = presenter
-        presenter.view = viewController
+        viewController.reviewsDetailViewControllerOutput = reviewsDetailPresenter
+        reviewsDetailPresenter.reviewsDetailViewControllerInput = viewController
         
         // Presenter
-        presenter.interactor = interactor
+        reviewsDetailPresenter.reviewsDetailInteractorInput = reviewsDetailInteractor
         
         // Interactor
-        interactor.presenter = presenter
-        interactor.loadImageCar = loadImageCar
+        reviewsDetailInteractor.reviewsDetailInteractorOutput = reviewsDetailPresenter
+        reviewsDetailInteractor.loadImageCar = loadImageCar
     }
 }

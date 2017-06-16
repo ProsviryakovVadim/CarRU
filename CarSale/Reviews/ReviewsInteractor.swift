@@ -8,27 +8,19 @@
 
 import RxSwift
 
-protocol ReviewsInteractorOutput: class {
-    func provideCars(_ car: [Car])
-}
-
-protocol ReviewsInteractorInput: class {
-    func getCarsDataProvide()
-}
-
 class ReviewsInteractor: ReviewsInteractorInput {
     
-    weak var presenter: ReviewsInteractorOutput!
-    var apiDataProvider: GetCarsProtocol!
+    weak var reviewsInteractorOutput: ReviewsInteractorOutput!
+    var carDataManagerDelegte: CarDataManagerDelegte!
     fileprivate var disposeBag = DisposeBag()
     
-    func getCarsDataProvide() {
-        apiDataProvider.getCars().subscribe(onNext: {(car) in
-            self.presenter.provideCars(car)
+    func getCarsDataManager() {
+        carDataManagerDelegte.getCars().subscribe(onNext: {(car) in
+            self.reviewsInteractorOutput.provideCars(car)
         }, onError: { [weak self] error in
             print(error)
             DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
-                self?.getCarsDataProvide()
+                self?.getCarsDataManager()
             }
         }).addDisposableTo(disposeBag)
     }

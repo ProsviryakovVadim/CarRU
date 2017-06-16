@@ -151,8 +151,8 @@
                                 </prototypes>
                                 <sections/>
                                 <connections>
-                                    <outlet property="dataSource" destination="DhK-bI-c8f" id="fSg-7c-M12"/>
-                                    <outlet property="delegate" destination="DhK-bI-c8f" id="EIt-gS-hvN"/>
+                                    <outlet property="dataSource" destination="DhK-bI-c8f" id="eyD-Ph-1Lf"/>
+                                    <outlet property="delegate" destination="DhK-bI-c8f" id="MQ9-0H-5k8"/>
                                 </connections>
                             </tableView>
                         </subviews>
