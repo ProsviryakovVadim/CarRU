@@ -10,6 +10,8 @@ import UIKit
 
 final class ReviewsDetailImageCell: UICollectionViewCell {
     
+    static let cellString = String(describing: ReviewsDetailImageCell.self)
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupViews()
@@ -35,6 +37,7 @@ final class ReviewsDetailImageCell: UICollectionViewCell {
 
 final class ReviewsDetailCollectionCell: UITableViewCell {
     
+    static let cellString = String(describing: ReviewsDetailCollectionCell.self)
     var newFormImage: [UIImage]?
     var collectionView: UICollectionView!
     
@@ -46,7 +49,7 @@ final class ReviewsDetailCollectionCell: UITableViewCell {
         collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.delegate = self
         collectionView.dataSource = self
-        collectionView.register(ReviewsDetailImageCell.self, forCellWithReuseIdentifier: "CollectionViewCell")
+        collectionView.register(ReviewsDetailImageCell.self, forCellWithReuseIdentifier: ReviewsDetailImageCell.cellString)
         collectionView.translatesAutoresizingMaskIntoConstraints = true 
         collectionView.backgroundColor = UIColor.clear
         self.addSubview(collectionView)
@@ -61,7 +64,6 @@ final class ReviewsDetailCollectionCell: UITableViewCell {
 }
 
 // MARK: UICollectionViewDelegateFlowLayout
-
 extension ReviewsDetailCollectionCell: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
         return CGSize(width: self.bounds.width, height: self.bounds.height) // The size of one cell
@@ -76,8 +78,8 @@ extension ReviewsDetailCollectionCell: UICollectionViewDelegate, UICollectionVie
     }
     
 }
-// MARK: UICollectionViewDataSource
 
+// MARK: UICollectionViewDataSource
 extension ReviewsDetailCollectionCell: UICollectionViewDataSource {
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
         return 1
@@ -88,7 +90,7 @@ extension ReviewsDetailCollectionCell: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CollectionViewCell", for: indexPath as IndexPath) as! ReviewsDetailImageCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ReviewsDetailImageCell.cellString, for: indexPath as IndexPath) as! ReviewsDetailImageCell
         
         if !(newFormImage?.isEmpty)! {
             cell.imageView.image = newFormImage![indexPath.row]

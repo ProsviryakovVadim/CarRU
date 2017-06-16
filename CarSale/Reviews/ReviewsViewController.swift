@@ -12,7 +12,7 @@ import KVNProgress
 class ReviewsViewController: UIViewController, ReviewsViewControllerInput {
     
     @IBOutlet var tableView: UITableView!
-    let cellString = String(describing: "\(ReviewsViewCell.self)")
+    static let cellString = String(describing: "\(ReviewsViewCell.self)")
     var reviewsViewControllerOutput: ReviewsViewControllerOutput!
     var reloadCar = false
     var markCar: [Car]?  {
@@ -39,7 +39,7 @@ class ReviewsViewController: UIViewController, ReviewsViewControllerInput {
     func setupTableView() {
         tableView.rowHeight = 90
         tableView.separatorStyle = .none
-        tableView.register(ReviewsViewCell.self as AnyClass, forCellReuseIdentifier: cellString)
+        tableView.register(ReviewsViewCell.self as AnyClass, forCellReuseIdentifier: ReviewsViewController.cellString)
     }
     
     func displayCars(_ car: [Car]) {
@@ -82,7 +82,7 @@ extension ReviewsViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellString, for: indexPath) as! ReviewsViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: ReviewsViewController.cellString, for: indexPath) as! ReviewsViewCell
         cell.setupCell(car: markCar!, row: indexPath.row)
         return cell
     }

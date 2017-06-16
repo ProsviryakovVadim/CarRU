@@ -39,7 +39,7 @@ class FormCreateCarViewController: UIViewController, ImagePickerDelegate, UINavi
         tableView.tableFooterView = UIView(frame: CGRect.zero)
         tableView.separatorColor = .lightGray
         tableView.backgroundColor = UIColor(red: 237, green: 237, blue: 237)
-        tableView.register(ReviewsDetailCollectionCell.self, forCellReuseIdentifier: "NewFormCell")
+        tableView.register(ReviewsDetailCollectionCell.self, forCellReuseIdentifier: ReviewsDetailCollectionCell.cellString)
         view.addSubview(tableView)
         setupNavBarButtons()
     }
@@ -148,7 +148,7 @@ extension FormCreateCarViewController: UITableViewDataSource {
             switch row {
             case 0:
                 if !imageFromCamera.isEmpty {
-                    let cell: ReviewsDetailCollectionCell = tableView.dequeueReusableCell(withIdentifier: "NewFormCell", for: indexPath) as! ReviewsDetailCollectionCell
+                    let cell: ReviewsDetailCollectionCell = tableView.dequeueReusableCell(withIdentifier: ReviewsDetailCollectionCell.cellString, for: indexPath) as! ReviewsDetailCollectionCell
                     cell.newFormImage = imageFromCamera
                     cell.collectionView.reloadData()
                     return cell
@@ -204,7 +204,7 @@ extension FormCreateCarViewController: UITableViewDelegate {
     
     
     func newView(indexPath: Int) {
-        let newView = self.storyboard?.instantiateViewController(withIdentifier: "FillMachine") as! FormFillCarViewController
+        let newView = self.storyboard?.instantiateViewController(withIdentifier: FormFillCarViewController.cellString) as! FormFillCarViewController
         newView.fieldSelected = fields[indexPath]
         newView.formView = self
         let nextNavi = UINavigationController(rootViewController: newView)

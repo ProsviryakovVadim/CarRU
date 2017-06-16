@@ -12,6 +12,7 @@ import UIKit
 class AddCarViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
+    static let cellString = String(describing: AddCarViewController.self)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,7 +23,7 @@ class AddCarViewController: UIViewController {
     
     func setupTableView() {
         tableView.contentInset = UIEdgeInsetsMake(50, 0, 0, 0)
-        tableView.register(AddCarTableViewCell.self as AnyClass, forCellReuseIdentifier: "AddCell")
+        tableView.register(AddCarTableViewCell.self as AnyClass, forCellReuseIdentifier: AddCarViewController.cellString)
         tableView.rowHeight = 120
         tableView.tableFooterView = UIView(frame: CGRect.zero)
         tableView.backgroundColor = UIColor(red: 237, green: 237, blue: 237)
@@ -48,7 +49,7 @@ extension AddCarViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = AddCarTableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: "AddCell")
+        let cell = AddCarTableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: AddCarViewController.cellString)
         cell.setupCell(row: indexPath.row, target: self, buttonTouched: #selector(buttonTouched(button:)))
         return cell
     }
@@ -68,7 +69,7 @@ extension AddCarViewController: UITableViewDataSource {
     }
     
     func buttonTouched(button: UIButton) {
-        let nextView = self.storyboard?.instantiateViewController(withIdentifier: "AddCar")
+        let nextView = self.storyboard?.instantiateViewController(withIdentifier: AddCarViewController.cellString)
         self.present(nextView!, animated: true, completion: nil)
     }
 }

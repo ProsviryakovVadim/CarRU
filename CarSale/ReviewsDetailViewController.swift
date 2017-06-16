@@ -9,18 +9,10 @@
 import UIKit
 import KVNProgress
 
-protocol ReviewsDetailViewControllerInput: class {
-    func displayCarInformation(_ info: Car, _ image: [UIImage])
-}
-
-protocol ReviewsDetailViewControllerOutput: class {
-    func saveSelecterCarModel(_ carModel: Car)
-    func loadOriginalImage()
-}
-
 final class ReviewsDetailViewController: UIViewController, ReviewsDetailViewControllerInput {
     
     @IBOutlet weak var tableView: UITableView!
+    static let cellString = String(describing: ReviewsDetailViewController.self)
     var reviewsDetailViewControllerOutput: ReviewsDetailViewControllerOutput!
     var car: Car?
     var imageCar: [UIImage]?
@@ -33,8 +25,8 @@ final class ReviewsDetailViewController: UIViewController, ReviewsDetailViewCont
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.separatorStyle = .none
-        tableView.register(ReviewsDetailViewCell.self as AnyClass, forCellReuseIdentifier: "ReviewsDetailCell")
-        tableView.register(ReviewsDetailCollectionCell.self, forCellReuseIdentifier: "NewFormCell")
+        tableView.register(ReviewsDetailViewCell.self as AnyClass, forCellReuseIdentifier: ReviewsDetailViewController.cellString)
+        tableView.register(ReviewsDetailCollectionCell.self, forCellReuseIdentifier: ReviewsDetailCollectionCell.cellString)
         self.reviewsDetailViewControllerOutput.loadOriginalImage()
     }
     
@@ -55,7 +47,7 @@ extension ReviewsDetailViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ReviewsDetailCell", for: indexPath) as! ReviewsDetailViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: ReviewsDetailViewController.cellString, for: indexPath) as! ReviewsDetailViewCell
         let row = indexPath.row
         switch row {
         case 0:
@@ -68,7 +60,7 @@ extension ReviewsDetailViewController: UITableViewDataSource {
             
         case 2:
             if self.imageCar != nil {
-                let cell: ReviewsDetailCollectionCell = tableView.dequeueReusableCell(withIdentifier: "NewFormCell", for: indexPath) as! ReviewsDetailCollectionCell
+                let cell: ReviewsDetailCollectionCell = tableView.dequeueReusableCell(withIdentifier: ReviewsDetailCollectionCell.cellString, for: indexPath) as! ReviewsDetailCollectionCell
                 cell.newFormImage = self.imageCar
                 cell.collectionView.reloadData()
             } else {

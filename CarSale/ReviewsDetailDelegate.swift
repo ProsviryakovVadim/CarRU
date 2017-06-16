@@ -8,6 +8,16 @@
 
 import UIKit
 
+// MARK: - ReviewsDetailViewController -
+protocol ReviewsDetailViewControllerInput: class {
+    func displayCarInformation(_ info: Car, _ image: [UIImage])
+}
+
+protocol ReviewsDetailViewControllerOutput: class {
+    func saveSelecterCarModel(_ carModel: Car)
+    func loadOriginalImage()
+}
+
 // MARK: - ReviewsDetailInteractor -
 protocol ReviewsDetailInteractorOutput: class {
     func sendLoadedInfoCar(_ car: Car, _ image: [UIImage])

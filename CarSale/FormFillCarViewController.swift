@@ -22,7 +22,7 @@ enum Fields {
 class FormFillCarViewController: UIViewController, UINavigationControllerDelegate   {
     
     private var tableView = UITableView()
-    private let cellString = String(describing: FormFillCarViewController.self)
+    static let cellString = String(describing: FormFillCarViewController.self)
     let disposeBag = DisposeBag()
     var formView: FormCreateCarViewController!
     var fieldSelected: String?
@@ -30,7 +30,7 @@ class FormFillCarViewController: UIViewController, UINavigationControllerDelegat
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
-        getMarks()
+        getModelMarks()
         setupDelegate()
     }
     
@@ -40,14 +40,14 @@ class FormFillCarViewController: UIViewController, UINavigationControllerDelegat
         navigationController?.navigationBar.isTranslucent = false
         tableView = UITableView(frame: self.view.bounds, style: UITableViewStyle.plain)
         tableView.tableFooterView = UIView(frame: CGRect.zero)
-        tableView.register(FormFillCarCell.self, forCellReuseIdentifier: cellString)
+        tableView.register(FormFillCarCell.self, forCellReuseIdentifier: FormFillCarViewController.cellString)
         tableView.contentInset = UIEdgeInsetsMake(8, 0, 0, 0)
         tableView.backgroundColor = UIColor(red: 237, green: 237, blue: 237)
         view.addSubview(tableView)
         closePage()
     }
     
-    func getMarks() {
+    func getModelMarks() {
         KVNProgress.show()
         _ = CarDataManager.instance.getMarks().subscribe(onNext: {(models) in
             self.setupDataSource(models: models)
@@ -64,7 +64,7 @@ class FormFillCarViewController: UIViewController, UINavigationControllerDelegat
         switch self.fieldSelected {
         case Fields.mark?:
             let markToCell = Observable.just(models.map {$0.title})
-            markToCell.bind(to: tableView.rx.items(cellIdentifier: cellString, cellType: FormFillCarCell.self)) { row, mark, cell in
+            markToCell.bind(to: tableView.rx.items(cellIdentifier: FormFillCarViewController.cellString, cellType: FormFillCarCell.self)) { row, mark, cell in
                 
                 cell.titleFormFillCar.text = mark
                 }.addDisposableTo(disposeBag)
@@ -72,7 +72,7 @@ class FormFillCarViewController: UIViewController, UINavigationControllerDelegat
             
         case Fields.model?:
             let modelToCell = Observable.just(models[self.formView.dataForm.indexSelected!].model!)
-            modelToCell.bind(to: tableView.rx.items(cellIdentifier: cellString, cellType: FormFillCarCell.self)) { row, model, cell in
+            modelToCell.bind(to: tableView.rx.items(cellIdentifier: FormFillCarViewController.cellString, cellType: FormFillCarCell.self)) { row, model, cell in
                 
                 cell.titleFormFillCar.text = model
                 }.addDisposableTo(disposeBag)

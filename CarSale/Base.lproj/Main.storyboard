@@ -108,7 +108,7 @@
         <!--Form Fill Car View Controller-->
         <scene sceneID="YcF-EF-2dB">
             <objects>
-                <viewController storyboardIdentifier="FillMachine" id="rY3-Lb-72q" customClass="FormFillCarViewController" customModule="CarSale" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FormFillCarViewController" id="rY3-Lb-72q" customClass="FormFillCarViewController" customModule="CarSale" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="M98-Hg-5kb"/>
                         <viewControllerLayoutGuide type="bottom" id="zEc-Xz-SM3"/>
@@ -232,7 +232,7 @@
         <!--Navigation Controller-->
         <scene sceneID="Dc3-ws-dC7">
             <objects>
-                <navigationController storyboardIdentifier="AddCar" automaticallyAdjustsScrollViewInsets="NO" id="NJh-2t-YeR" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="AddCarViewController" automaticallyAdjustsScrollViewInsets="NO" id="NJh-2t-YeR" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="e9T-9r-a5G">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>

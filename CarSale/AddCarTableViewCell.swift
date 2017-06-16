@@ -34,8 +34,6 @@ class AddCarTableViewCell: UITableViewCell {
             return addButton
         }()
         
-        
-        
         contentView.addSubview(addTextCarView)
         contentView.addSubview(addButtonView)
     }
@@ -44,6 +42,7 @@ class AddCarTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - Setup Cell -
     func setupCell(row: Int, target: UIViewController, buttonTouched: Selector) {
         switch row {
         case 0:
