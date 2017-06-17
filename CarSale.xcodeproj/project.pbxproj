@@ -65,7 +65,7 @@
 		DDA1BCE31EDEE75D00ECB952 /* Date+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		DDA1BCEA1EDF0E1400ECB952 /* ReviewsDetailViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewsDetailViewCell.swift; sourceTree = "<group>"; };
 		DDA1BCEE1EDF190300ECB952 /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
-		DDA1BCF01EDF1A7D00ECB952 /* AddMenuBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddMenuBar.swift; path = Model/AddMenuBar.swift; sourceTree = "<group>"; };
+		DDA1BCF01EDF1A7D00ECB952 /* AddMenuBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddMenuBar.swift; sourceTree = "<group>"; };
 		DDA1BCF21EDF1C5900ECB952 /*  UIView+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = " UIView+Extensions.swift"; sourceTree = "<group>"; };
 		DDA1BCF41EDF1CE000ECB952 /* AddCarTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddCarTableViewCell.swift; sourceTree = "<group>"; };
 		DDA1BCFC1EE00F0C00ECB952 /* FormCreateCarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormCreateCarViewController.swift; sourceTree = "<group>"; };
@@ -323,7 +323,7 @@
 				DDA1BCF21EDF1C5900ECB952 /*  UIView+Extensions.swift */,
 				DDA1BCF01EDF1A7D00ECB952 /* AddMenuBar.swift */,
 			);
-			name = Extension;
+			path = Extension;
 			sourceTree = "<group>";
 		};
 		DDBA72411EDD84DA003C460E /* ReviewsDetail */ = {
