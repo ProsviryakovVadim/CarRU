@@ -52,7 +52,7 @@
 		67699E4882DF4C0363B13F98 /* Pods_CarSale.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CarSale.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8DEA145706F023D39430912B /* Pods-CarSale.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CarSale.release.xcconfig"; path = "Pods/Target Support Files/Pods-CarSale/Pods-CarSale.release.xcconfig"; sourceTree = "<group>"; };
 		93A4B1BEA4A18F8D71B22D20 /* Pods-CarSale.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CarSale.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CarSale/Pods-CarSale.debug.xcconfig"; sourceTree = "<group>"; };
-		DD1CA4991EF1D7EF0086853F /* FormCreateCarField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FormCreateCarField.swift; path = ../FormCreateCarField.swift; sourceTree = "<group>"; };
+		DD1CA4991EF1D7EF0086853F /* FormCreateCarField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormCreateCarField.swift; sourceTree = "<group>"; };
 		DD1CA49C1EF3183C0086853F /* FormFillCarCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormFillCarCell.swift; sourceTree = "<group>"; };
 		DD1CA49F1EF3FEEC0086853F /* ReviewsViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewsViewCell.swift; sourceTree = "<group>"; };
 		DD1CA4A21EF401C70086853F /* ReviewsDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewsDelegate.swift; sourceTree = "<group>"; };
@@ -85,7 +85,7 @@
 		DDBA72421EDD8529003C460E /* ReviewsDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewsDetailViewController.swift; sourceTree = "<group>"; tabWidth = 4; };
 		DDBA72491EDD8FDE003C460E /* AddCarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddCarViewController.swift; sourceTree = "<group>"; };
 		DDBA72521EDDA6A7003C460E /* ReviewsDetailInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewsDetailInteractor.swift; sourceTree = "<group>"; };
-		DDC0F54E1EE5A70000D1898F /* Form.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Form.swift; path = ../Form.swift; sourceTree = "<group>"; };
+		DDC0F54E1EE5A70000D1898F /* Form.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Form.swift; sourceTree = "<group>"; };
 		DDDB3C171EDC22E50045E251 /* CarSale.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CarSale.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDDB3C1A1EDC22E50045E251 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DDDB3C1F1EDC22E50045E251 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -129,6 +129,7 @@
 				DD1CA49C1EF3183C0086853F /* FormFillCarCell.swift */,
 			);
 			name = FormFillCarCell;
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		DD1CA49E1EF3FEDD0086853F /* Cell */ = {
@@ -136,7 +137,7 @@
 			children = (
 				DD1CA49F1EF3FEEC0086853F /* ReviewsViewCell.swift */,
 			);
-			name = Cell;
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		DD1CA4A11EF401AD0086853F /* Delegate */ = {
@@ -144,7 +145,7 @@
 			children = (
 				DD1CA4A21EF401C70086853F /* ReviewsDelegate.swift */,
 			);
-			name = Delegate;
+			path = Delegate;
 			sourceTree = "<group>";
 		};
 		DD1CA4A61EF408B40086853F /* Delegate */ = {
@@ -152,7 +153,7 @@
 			children = (
 				DD1CA4A41EF408900086853F /* CarDataDelegate.swift */,
 			);
-			name = Delegate;
+			path = Delegate;
 			sourceTree = "<group>";
 		};
 		DD1CA4A71EF408FE0086853F /* Delegate */ = {
@@ -160,7 +161,15 @@
 			children = (
 				DD1CA4A81EF409590086853F /* ReviewsDetailDelegate.swift */,
 			);
-			name = Delegate;
+			path = Delegate;
+			sourceTree = "<group>";
+		};
+		DD5B5C6F1EF5422A00716E27 /* FormCreateCar */ = {
+			isa = PBXGroup;
+			children = (
+				DD1F431B1EE9408100169C87 /* FormCreateCarViewModel.swift */,
+			);
+			path = FormCreateCar;
 			sourceTree = "<group>";
 		};
 		DD91D6D91EDEB334002D9D55 /* VIPER */ = {
@@ -169,7 +178,7 @@
 				DDBA72511EDD9F23003C460E /* Reviews */,
 				DDBA72411EDD84DA003C460E /* ReviewsDetail */,
 			);
-			name = VIPER;
+			path = VIPER;
 			sourceTree = "<group>";
 		};
 		DD91D6DA1EDEB35D002D9D55 /* StoryBoard+AppDelegate */ = {
@@ -181,7 +190,7 @@
 				DDDB3C231EDC22E50045E251 /* LaunchScreen.storyboard */,
 				DDDB3C261EDC22E50045E251 /* Info.plist */,
 			);
-			name = "StoryBoard+AppDelegate";
+			path = "StoryBoard+AppDelegate";
 			sourceTree = "<group>";
 		};
 		DD91D6DB1EDEB552002D9D55 /* Assembly */ = {
@@ -189,7 +198,7 @@
 			children = (
 				DDBA721D1EDC2621003C460E /* ReviewsAssembly.swift */,
 			);
-			name = Assembly;
+			path = Assembly;
 			sourceTree = "<group>";
 		};
 		DD91D6DC1EDEB570002D9D55 /* Interactor */ = {
@@ -197,7 +206,7 @@
 			children = (
 				DDBA721E1EDC2621003C460E /* ReviewsInteractor.swift */,
 			);
-			name = Interactor;
+			path = Interactor;
 			sourceTree = "<group>";
 		};
 		DD91D6DD1EDEB596002D9D55 /* Presenter */ = {
@@ -205,7 +214,7 @@
 			children = (
 				DDBA721F1EDC2621003C460E /* ReviewsPresenter.swift */,
 			);
-			name = Presenter;
+			path = Presenter;
 			sourceTree = "<group>";
 		};
 		DD91D6DE1EDEB696002D9D55 /* View */ = {
@@ -214,7 +223,7 @@
 				DD1CA49E1EF3FEDD0086853F /* Cell */,
 				DDBA72211EDC2621003C460E /* ReviewsViewController.swift */,
 			);
-			name = View;
+			path = View;
 			sourceTree = "<group>";
 		};
 		DD91D6DF1EDEB6AE002D9D55 /* Router */ = {
@@ -222,7 +231,7 @@
 			children = (
 				DDBA72201EDC2621003C460E /* ReviewsRouter.swift */,
 			);
-			name = Router;
+			path = Router;
 			sourceTree = "<group>";
 		};
 		DDA1BCE21EDEE6CF00ECB952 /* View */ = {
@@ -231,7 +240,7 @@
 				DDA1BCE91EDF0DCA00ECB952 /* Cell */,
 				DDBA72421EDD8529003C460E /* ReviewsDetailViewController.swift */,
 			);
-			name = View;
+			path = View;
 			sourceTree = "<group>";
 		};
 		DDA1BCE61EDF0C9200ECB952 /* Assembly */ = {
@@ -239,7 +248,7 @@
 			children = (
 				DD91D6D71EDDC27D002D9D55 /* ReviewsDetailAssembly.swift */,
 			);
-			name = Assembly;
+			path = Assembly;
 			sourceTree = "<group>";
 		};
 		DDA1BCE71EDF0CB000ECB952 /* Interactor */ = {
@@ -247,7 +256,7 @@
 			children = (
 				DDBA72521EDDA6A7003C460E /* ReviewsDetailInteractor.swift */,
 			);
-			name = Interactor;
+			path = Interactor;
 			sourceTree = "<group>";
 		};
 		DDA1BCE81EDF0CB900ECB952 /* Presenter */ = {
@@ -255,7 +264,7 @@
 			children = (
 				DD91D6D51EDDB826002D9D55 /* ReviewsDetaiPresenter.swift */,
 			);
-			name = Presenter;
+			path = Presenter;
 			sourceTree = "<group>";
 		};
 		DDA1BCE91EDF0DCA00ECB952 /* Cell */ = {
@@ -264,7 +273,7 @@
 				DDA1BCE01EDEDA4100ECB952 /* ReviewsDetailCollectionCell.swift */,
 				DDA1BCEA1EDF0E1400ECB952 /* ReviewsDetailViewCell.swift */,
 			);
-			name = Cell;
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		DDA1BCF61EDF1EC500ECB952 /* Cell */ = {
@@ -272,7 +281,7 @@
 			children = (
 				DDA1BCF41EDF1CE000ECB952 /* AddCarTableViewCell.swift */,
 			);
-			name = Cell;
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		DDA1BCFB1EE00E8100ECB952 /* FormCreateCar */ = {
@@ -280,7 +289,7 @@
 			children = (
 				DDA1BCFC1EE00F0C00ECB952 /* FormCreateCarViewController.swift */,
 			);
-			name = FormCreateCar;
+			path = FormCreateCar;
 			sourceTree = "<group>";
 		};
 		DDBA72191EDC2621003C460E /* Model */ = {
@@ -301,8 +310,7 @@
 				DD1CA4A61EF408B40086853F /* Delegate */,
 				DDBA72231EDC2621003C460E /* CarDataManager.swift */,
 			);
-			name = CarDataManager;
-			path = DataStore;
+			path = CarDataManager;
 			sourceTree = "<group>";
 		};
 		DDBA72391EDD6C2F003C460E /* Controller */ = {
@@ -311,7 +319,7 @@
 				DDBA723A1EDD6C6F003C460E /* NavigationController.swift */,
 				DDA1BCEE1EDF190300ECB952 /* TabBarController.swift */,
 			);
-			name = Controller;
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		DDBA723C1EDD6CAA003C460E /* Extension */ = {
@@ -335,7 +343,7 @@
 				DDA1BCE81EDF0CB900ECB952 /* Presenter */,
 				DDA1BCE21EDEE6CF00ECB952 /* View */,
 			);
-			name = ReviewsDetail;
+			path = ReviewsDetail;
 			sourceTree = "<group>";
 		};
 		DDBA72441EDD8FCA003C460E /* AddCar */ = {
@@ -344,7 +352,7 @@
 				DDA1BCF61EDF1EC500ECB952 /* Cell */,
 				DDBA72491EDD8FDE003C460E /* AddCarViewController.swift */,
 			);
-			name = AddCar;
+			path = AddCar;
 			sourceTree = "<group>";
 		};
 		DDBA72511EDD9F23003C460E /* Reviews */ = {
@@ -366,7 +374,7 @@
 				DDC0F54B1EE59B2700D1898F /* View */,
 				DDC0F5481EE58D1100D1898F /* ViewModel */,
 			);
-			name = MVVM;
+			path = MVVM;
 			sourceTree = "<group>";
 		};
 		DDC0F5471EE58D0000D1898F /* FormFillCar */ = {
@@ -375,15 +383,15 @@
 				DD1CA49B1EF318240086853F /* FormFillCarCell */,
 				DDA1BD001EE00FBB00ECB952 /* FormFillCarViewController.swift */,
 			);
-			name = FormFillCar;
+			path = FormFillCar;
 			sourceTree = "<group>";
 		};
 		DDC0F5481EE58D1100D1898F /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				DD1F431B1EE9408100169C87 /* FormCreateCarViewModel.swift */,
+				DD5B5C6F1EF5422A00716E27 /* FormCreateCar */,
 			);
-			name = ViewModel;
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		DDC0F54B1EE59B2700D1898F /* View */ = {
@@ -393,7 +401,7 @@
 				DDC0F5471EE58D0000D1898F /* FormFillCar */,
 				DDA1BCFB1EE00E8100ECB952 /* FormCreateCar */,
 			);
-			name = View;
+			path = View;
 			sourceTree = "<group>";
 		};
 		DDDB3C0E1EDC22E50045E251 = {
