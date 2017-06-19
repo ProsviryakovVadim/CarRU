@@ -24,7 +24,6 @@ class ReviewsViewController: UIViewController, ReviewsViewControllerInput {
         }
     }
     
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         ReviewsAssembly.sharedInstanceReviews.configure(self)
@@ -33,7 +32,7 @@ class ReviewsViewController: UIViewController, ReviewsViewControllerInput {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
-        reviewsViewControllerOutput.getCarsInteractor()
+        self.reviewsViewControllerOutput.getCarsInteractor()
     }
     
     func setupTableView() {

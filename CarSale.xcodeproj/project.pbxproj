@@ -304,13 +304,13 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		DDBA72221EDC2621003C460E /* CarDataManager */ = {
+		DDBA72221EDC2621003C460E /* DataManager */ = {
 			isa = PBXGroup;
 			children = (
 				DD1CA4A61EF408B40086853F /* Delegate */,
 				DDBA72231EDC2621003C460E /* CarDataManager.swift */,
 			);
-			path = CarDataManager;
+			path = DataManager;
 			sourceTree = "<group>";
 		};
 		DDBA72391EDD6C2F003C460E /* Controller */ = {
@@ -398,8 +398,8 @@
 			isa = PBXGroup;
 			children = (
 				DDBA72441EDD8FCA003C460E /* AddCar */,
-				DDC0F5471EE58D0000D1898F /* FormFillCar */,
 				DDA1BCFB1EE00E8100ECB952 /* FormCreateCar */,
+				DDC0F5471EE58D0000D1898F /* FormFillCar */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -429,7 +429,7 @@
 				DDBA723C1EDD6CAA003C460E /* Extension */,
 				DDBA72391EDD6C2F003C460E /* Controller */,
 				DDBA72191EDC2621003C460E /* Model */,
-				DDBA72221EDC2621003C460E /* CarDataManager */,
+				DDBA72221EDC2621003C460E /* DataManager */,
 				DD91D6D91EDEB334002D9D55 /* VIPER */,
 				DDC0F5461EE58C8100D1898F /* MVVM */,
 			);

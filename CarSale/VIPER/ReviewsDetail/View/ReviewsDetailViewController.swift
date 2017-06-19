@@ -14,8 +14,9 @@ final class ReviewsDetailViewController: UIViewController, ReviewsDetailViewCont
     @IBOutlet weak var tableView: UITableView!
     static let cellString = String(describing: ReviewsDetailViewController.self)
     var reviewsDetailViewControllerOutput: ReviewsDetailViewControllerOutput!
-    var car: Car?
+    weak var car: Car?
     var imageCar: [UIImage]?
+    
     
     override func awakeFromNib() {
         super .awakeFromNib()
@@ -27,6 +28,7 @@ final class ReviewsDetailViewController: UIViewController, ReviewsDetailViewCont
         tableView.separatorStyle = .none
         tableView.register(ReviewsDetailViewCell.self as AnyClass, forCellReuseIdentifier: ReviewsDetailViewController.cellString)
         tableView.register(ReviewsDetailCollectionCell.self, forCellReuseIdentifier: ReviewsDetailCollectionCell.cellString)
+        KVNProgress.show(100)
         self.reviewsDetailViewControllerOutput.loadOriginalImage()
     }
     
@@ -69,8 +71,7 @@ extension ReviewsDetailViewController: UITableViewDataSource {
             }
             return cell
             
-        default:
-            return cell
+        default: break
         }
         return cell
     }

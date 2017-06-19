@@ -49,14 +49,11 @@ class ReviewsViewCell: UITableViewCell {
     func setupCell(car: [Car], row: Int) {
         markCar.text = car[row].mark
         modelCar.text = car[row].model
-        if let images = car[row].images {
-            let url = NSURL(string: (images[0].small)!)
-            imageCar.sd_setImage(with: url! as URL, completed: { (image, error, cache, url) in
-                self.imageCar.image = image
-            })
-        } else {
-            imageCar?.image = UIImage(named: "race")
+        guard let url = NSURL(string: (car[row].images[0].small)) else {
+           return (imageCar?.image = UIImage(named: "race"))!
         }
-
+        imageCar.sd_setImage(with: url as URL, completed: { (image, error, cache, url) in
+            self.imageCar.image = image
+        })
     }
 }

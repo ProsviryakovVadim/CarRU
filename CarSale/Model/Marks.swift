@@ -10,7 +10,7 @@ import ObjectMapper
 
 
 final class Marks: Mappable {
-    var marks: [Models]?
+    private(set) var marks: [Models] = []
     
     init?(map: Map) {}
     func mapping(map: Map) {
@@ -19,8 +19,8 @@ final class Marks: Mappable {
 }
 
 final class Models: Mappable {
-    var title: String?
-    var model: [String]?
+    private(set) var title: String = ""
+    private(set) var model: [String] = []
     
     init?(map: Map) {}
     func mapping(map: Map) {

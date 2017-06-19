@@ -8,7 +8,6 @@
 
 import UIKit
 
-
 final class ReviewsDetailPresenter: ReviewsDetaiPresenterInput {
 
     var reviewsDetailViewControllerInput: ReviewsDetailViewControllerInput!

@@ -9,29 +9,21 @@
 import ObjectMapper
 
 final class Vehicles: Mappable {
-    var vehicles: [Car]?
+    var vehicles: [Car] = []
     init?(map: Map) {}
     func mapping(map: Map) {
         vehicles <- map["vehicles"]
     }
 }
 
-final class Vehicle: Mappable {
-    var vehicle: Car?
-    init?(map: Map) {}
-    func mapping(map: Map) {
-        vehicle <- map["vehicle"]
-    }
-}
-
 final class Car: Mappable {
     
-    var id: String?
-    var mark: String?
-    var model: String?
-    var price: String?
-    var images: [Images]?
-    var created: Date?
+    private(set) var id: String = ""
+    private(set) var mark: String = ""
+    private(set) var model: String = ""
+    private(set) var price: String = ""
+    private(set) var images: [Images] = []
+    private(set) var created: Date = Date()
     
     init?(map: Map) {}
     
@@ -47,8 +39,8 @@ final class Car: Mappable {
 }
 
 final class Images: Mappable {
-    var original: String?
-    var small: String?
+    private(set) var original: String = ""
+    private(set) var small: String = ""
     
     init?(map: Map) {}
     

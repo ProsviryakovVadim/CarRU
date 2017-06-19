@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 final class ReviewsDetailImageCell: UICollectionViewCell {
     
     static let cellString = String(describing: ReviewsDetailImageCell.self)

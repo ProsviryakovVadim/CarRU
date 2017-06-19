@@ -27,10 +27,8 @@ class CarDataManager: CarDataManagerDelegte, LoadImageCarDelegate {
             let req = Alamofire.request(self.path + "vehicles/").responseObject {(response: DataResponse<Vehicles>) in
                 switch response.result {
                 case .success(let res):
-                    if let car = res.vehicles {
-                        observer.onNext(car)
-                        observer.onCompleted()
-                    }
+                    observer.onNext(res.vehicles)
+                    observer.onCompleted()
                 case .failure(let error):
                     observer.onError(error)
                 }
@@ -41,24 +39,22 @@ class CarDataManager: CarDataManagerDelegte, LoadImageCarDelegate {
         })
     }
     
-        func getMarks() -> Observable<[Models]> {
-            return Observable.create({ (observer) -> Disposable in
-                let req = Alamofire.request(self.path + "vehicles/marks").responseObject {(response: DataResponse<Marks>) in
-                    switch response.result {
-                    case .success(let res):
-                        if let mark = res.marks {
-                            observer.onNext(mark)
-                            observer.onCompleted()
-                        }
-                    case .failure(let error):
-                        observer.onError(error)
-                    }
+    func getMarks() -> Observable<[Models]> {
+        return Observable.create({ (observer) -> Disposable in
+            let req = Alamofire.request(self.path + "vehicles/marks").responseObject {(response: DataResponse<Marks>) in
+                switch response.result {
+                case .success(let res):
+                    observer.onNext(res.marks)
+                    observer.onCompleted()
+                case .failure(let error):
+                    observer.onError(error)
                 }
-                return Disposables.create {
-                    req.cancel()
-                }
-            })
-        }
+            }
+            return Disposables.create {
+                req.cancel()
+            }
+        })
+    }
     
     
     func prepareRequest(image: [UIImage], mark: String, model: String) {
@@ -70,10 +66,10 @@ class CarDataManager: CarDataManagerDelegte, LoadImageCarDelegate {
         }
         
         let json: [String: Any] = ["vehicles":
-                                    ["mark": mark,
-                                     "model": model,
-                                     "price": "1000",
-                                     "images": imageString]]
+            ["mark": mark,
+             "model": model,
+             "price": "1000",
+             "images": imageString]]
         
         let jsonData = try? JSONSerialization.data(withJSONObject: json)
         // create post request
@@ -91,8 +87,8 @@ class CarDataManager: CarDataManagerDelegte, LoadImageCarDelegate {
         }
         task.resume()
     }
-
-
+    
+    
     
     //    func getCar(searchCarId: String, completionHandler: @escaping (NSError, Car?) -> Void) {
     //        let escapedSearchId = searchCarId.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)

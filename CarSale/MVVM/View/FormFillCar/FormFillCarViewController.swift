@@ -20,11 +20,11 @@ enum Fields {
 }
 
 class FormFillCarViewController: UIViewController, UINavigationControllerDelegate   {
-    
-    private var tableView = UITableView()
+
+    @IBOutlet weak var tableView: UITableView!
     static let cellString = String(describing: FormFillCarViewController.self)
     let disposeBag = DisposeBag()
-    var formView: FormCreateCarViewController!
+    weak var formView: FormCreateCarViewController!
     var fieldSelected: String?
 
     override func viewDidLoad() {
@@ -34,16 +34,13 @@ class FormFillCarViewController: UIViewController, UINavigationControllerDelegat
         setupDelegate()
     }
     
-    
     func setupTableView() {
         navigationController?.delegate = self
         navigationController?.navigationBar.isTranslucent = false
-        tableView = UITableView(frame: self.view.bounds, style: UITableViewStyle.plain)
         tableView.tableFooterView = UIView(frame: CGRect.zero)
         tableView.register(FormFillCarCell.self, forCellReuseIdentifier: FormFillCarViewController.cellString)
         tableView.contentInset = UIEdgeInsetsMake(8, 0, 0, 0)
         tableView.backgroundColor = UIColor(red: 237, green: 237, blue: 237)
-        view.addSubview(tableView)
         closePage()
     }
     
@@ -71,7 +68,7 @@ class FormFillCarViewController: UIViewController, UINavigationControllerDelegat
             
             
         case Fields.model?:
-            let modelToCell = Observable.just(models[self.formView.dataForm.indexSelected!].model!)
+            let modelToCell = Observable.just(models[self.formView.dataForm.indexSelected!].model)
             modelToCell.bind(to: tableView.rx.items(cellIdentifier: FormFillCarViewController.cellString, cellType: FormFillCarCell.self)) { row, model, cell in
                 
                 cell.titleFormFillCar.text = model

@@ -14,7 +14,8 @@ import RxCocoa
 
 class FormCreateCarViewController: UIViewController, ImagePickerDelegate, UINavigationControllerDelegate {
     
-    private var tableView = UITableView()
+    @IBOutlet weak var tableView: UITableView!
+
     let fields = ["Марка","Модель","Выбрать фотографии"]
     let send = ["Отправить данные"]
     
@@ -22,25 +23,19 @@ class FormCreateCarViewController: UIViewController, ImagePickerDelegate, UINavi
     var dataForm = Form()
     var colorForCellUnselected = UIColor(red: 237, green: 237, blue: 237)
     
-
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
     }
     
+    
     func setupTableView() {
-        navigationController?.delegate = self
         navigationController?.navigationBar.isTranslucent = false
-        tableView = UITableView(frame: self.view.bounds, style: UITableViewStyle.plain)
-        tableView.dataSource = self
-        tableView.delegate = self
         tableView.contentInset = UIEdgeInsetsMake(8, 0, 0, 0)
         tableView.tableFooterView = UIView(frame: CGRect.zero)
         tableView.separatorColor = .lightGray
         tableView.backgroundColor = UIColor(red: 237, green: 237, blue: 237)
         tableView.register(ReviewsDetailCollectionCell.self, forCellReuseIdentifier: ReviewsDetailCollectionCell.cellString)
-        view.addSubview(tableView)
         setupNavBarButtons()
     }
     
@@ -126,7 +121,7 @@ extension FormCreateCarViewController: UITableViewDataSource {
             switch row {
             case 0:
                 if dataForm.mark != nil {
-                    cell.textLabel?.text =  dataForm.mark
+                    cell.textLabel?.text = dataForm.mark
                     cell.textLabel?.textColor = .black
                     colorForCellUnselected = .white
                 } else {
@@ -135,7 +130,7 @@ extension FormCreateCarViewController: UITableViewDataSource {
                 }
             case 1:
                 if dataForm.model != nil && dataForm.model != "" {
-                    cell.textLabel?.text =  dataForm.model
+                    cell.textLabel?.text = dataForm.model
                     cell.textLabel?.textColor = .black
                 } else {
                     cell.textLabel?.text = fields[row]
@@ -227,6 +222,7 @@ extension FormCreateCarViewController: UITableViewDelegate {
     
     func prepareRequest() {
         CarDataManager.instance.prepareRequest(image: imageFromCamera, mark: dataForm.mark!, model: dataForm.model!)
+        imageFromCamera.removeAll()
         handleClose()
     }
     
