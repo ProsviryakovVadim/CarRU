@@ -45,6 +45,7 @@ class LoginController: UIViewController {
     @IBAction func next() {
         clientDidLoad()
         login.text?.removeAll()
+        password.text?.removeAll()
     }
     
     
