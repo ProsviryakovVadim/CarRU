@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import KVNProgress
 
 final class ReviewsDetailInteractor: ReviewsDetailInteractorInput {
     
@@ -34,6 +33,7 @@ final class ReviewsDetailInteractor: ReviewsDetailInteractorInput {
                     self.images.append(images!)
                     if self.images.count == urlImage.count {
                         self.reviewsDetailInteractorOutput.sendLoadedInfoCar(self.carModel!, self.images)
+                        self.images.removeAll()
                     }
                 }
             }

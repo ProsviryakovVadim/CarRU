@@ -8,7 +8,6 @@
 
 import UIKit
 
-
 final class ReviewsDetailImageCell: UICollectionViewCell {
     
     static let cellString = String(describing: ReviewsDetailImageCell.self)
@@ -57,7 +56,6 @@ final class ReviewsDetailCollectionCell: UITableViewCell {
         addConstraintsWithFormat("H:|[v0]|", views: collectionView)
         addConstraintsWithFormat("V:|[v0]|", views: collectionView)
     }
-    
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)

@@ -1,56 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="PpR-p6-IBP">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
-        <scene sceneID="EHf-IW-A2E">
+        <scene sceneID="S5V-z9-TaK">
             <objects>
-                <viewController id="01J-lp-oVM" sceneMemberID="viewController">
+                <viewController id="PpR-p6-IBP" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Llm-lL-Icb"/>
-                        <viewControllerLayoutGuide type="bottom" id="xb3-aO-Qok"/>
+                        <viewControllerLayoutGuide type="top" id="tht-UR-TfY"/>
+                        <viewControllerLayoutGuide type="bottom" id="EIS-aB-DJA"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
+                    <view key="view" contentMode="scaleToFill" id="8J6-R4-1wt">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="Foy-Lz-tIY">
-                                <rect key="frame" x="-5" y="170" width="375" height="220"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo_2" translatesAutoresizingMaskIntoConstraints="NO" id="D7Y-8F-zLV">
+                                <rect key="frame" x="139" y="301" width="96" height="64"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="D7Y-8F-zLV" secondAttribute="height" multiplier="3:2" id="3ZM-Nb-zHs"/>
+                                    <constraint firstAttribute="height" constant="64" id="UfV-z9-04Z"/>
+                                    <constraint firstAttribute="width" constant="96" id="ZvV-NT-HgJ"/>
+                                </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Car.RU" textAlignment="justified" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yEW-M8-4ZB">
-                                <rect key="frame" x="105" y="384" width="165" height="36"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="50"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="Foy-Lz-tIY" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" constant="-5" id="3W3-U0-l5i"/>
-                            <constraint firstItem="Foy-Lz-tIY" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="150" id="82r-vU-cgZ"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="yEW-M8-4ZB" secondAttribute="trailing" constant="89" id="Bfm-h0-OZt"/>
-                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="Foy-Lz-tIY" secondAttribute="bottom" constant="277" id="C0c-Ql-y1L"/>
-                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="yEW-M8-4ZB" secondAttribute="bottom" constant="247" id="Gzj-vn-5EV"/>
-                            <constraint firstAttribute="trailing" secondItem="Foy-Lz-tIY" secondAttribute="trailing" constant="5" id="KOG-bV-ouZ"/>
-                            <constraint firstItem="yEW-M8-4ZB" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="364" id="zRR-PC-BNc"/>
-                            <constraint firstItem="yEW-M8-4ZB" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" constant="89" id="zvF-y7-8i6"/>
+                            <constraint firstItem="D7Y-8F-zLV" firstAttribute="centerX" secondItem="8J6-R4-1wt" secondAttribute="centerX" id="qfV-WZ-VgE"/>
+                            <constraint firstItem="D7Y-8F-zLV" firstAttribute="centerY" secondItem="8J6-R4-1wt" secondAttribute="centerY" id="uJG-Bg-AiT"/>
                         </constraints>
                     </view>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BQy-Qt-73K" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="52" y="374.66266866566718"/>
+            <point key="canvasLocation" x="-257" y="125"/>
         </scene>
     </scenes>
     <resources>
-        <image name="logo" width="800" height="354"/>
+        <image name="logo_2" width="512" height="512"/>
     </resources>
 </document>

@@ -11,6 +11,7 @@ import KVNProgress
 
 class ReviewsViewController: UIViewController, ReviewsViewControllerInput {
     
+ 
     @IBOutlet var tableView: UITableView!
     static let cellString = String(describing: "\(ReviewsViewCell.self)")
     var reviewsViewControllerOutput: ReviewsViewControllerOutput!
@@ -51,6 +52,11 @@ class ReviewsViewController: UIViewController, ReviewsViewControllerInput {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         reviewsViewControllerOutput.passDataReviewsDetail(segue)
+    }
+    
+    @IBAction func exit(_ sender: Any) {
+        markCar?.removeAll()
+        self.dismiss(animated: true, completion: nil)
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {

@@ -6,9 +6,6 @@
 //  Copyright © 2016 Константин. All rights reserved.
 //
 
-import UIKit
-import RxSwift
-
 struct FormCreateCarField {
     
     let field: String

@@ -19,11 +19,11 @@ enum Fields {
     static var close    = "Отмена"
 }
 
-class FormFillCarViewController: UIViewController, UINavigationControllerDelegate   {
+final class FormFillCarViewController: UIViewController, UINavigationControllerDelegate {
 
     @IBOutlet weak var tableView: UITableView!
     static let cellString = String(describing: FormFillCarViewController.self)
-    let disposeBag = DisposeBag()
+    private let disposeBag = DisposeBag()
     weak var formView: FormCreateCarViewController!
     var fieldSelected: String?
 
@@ -106,6 +106,7 @@ class FormFillCarViewController: UIViewController, UINavigationControllerDelegat
     }
     
     func handleClose() {
+        formView = nil
         self.dismiss(animated: true, completion: nil)
     }
 }

@@ -12,7 +12,7 @@ import Lightbox
 import RxCocoa
 import RxCocoa
 
-class FormCreateCarViewController: UIViewController, ImagePickerDelegate, UINavigationControllerDelegate {
+final class FormCreateCarViewController: UIViewController, ImagePickerDelegate, UINavigationControllerDelegate {
     
     @IBOutlet weak var tableView: UITableView!
 
