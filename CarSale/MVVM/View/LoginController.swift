@@ -15,39 +15,43 @@ class LoginController: UIViewController {
     @IBOutlet weak var logoMovedToTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var logoHeightOriginalConstraint: NSLayoutConstraint!
     @IBOutlet weak var logoHeightSmallerConstraint: NSLayoutConstraint!
+    @IBOutlet weak var loginButtonTop: NSLayoutConstraint!
+    @IBOutlet weak var loginButtonTopOpen: NSLayoutConstraint!
     
     @IBOutlet private var loginButton: UIButton!
-    @IBOutlet private var activityIndicatorView: UIActivityIndicatorView!
     @IBOutlet weak var login: UITextField!
     @IBOutlet weak var password: UITextField!
+    @IBOutlet weak var registrationButton: UIButton!
     
+    // MARK: - View -
     override func viewDidLoad() {
         gradientColors()
-        load()
+    }
+
+    override func viewDidDisappear(_ animated: Bool) {
+        login.text?.removeAll()
+        password.text?.removeAll()
+        loginButtonTop.isActive = false
+        loginButtonTopOpen.isActive = true
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         animtedLogo()
         animatedFields()
+        loginButtonTop.isActive = true
+        loginButtonTopOpen.isActive = false
     }
     
-    private func load() {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-            self.activityIndicatorView.stopAnimating()
-            self.activityIndicatorView.isHidden = true
-            self.loginButton.isHidden = false
-            self.login.isHidden = false
-            self.password.isHidden = false
-        }
-    }
     
+    // MARK: - Action -
     @IBAction func next() {
         clientDidLoad()
-        login.text?.removeAll()
-        password.text?.removeAll()
     }
     
+    @IBAction func registration(_ sender: Any) {
+        //TODO
+    }
     
     private func clientDidLoad() {
         let client = Client.instance
@@ -55,8 +59,6 @@ class LoginController: UIViewController {
         if login == client.login {
             let newVc = self.storyboard?.instantiateViewController(withIdentifier: "Start")
             self.present(newVc!, animated: true, completion: nil)
-        } else {
-            self.viewDidAppear(true)
         }
     }
     
@@ -69,7 +71,7 @@ class LoginController: UIViewController {
         logoHeightOriginalConstraint.isActive = false
         logoHeightSmallerConstraint.isActive = true
     }
-
+    
     func animatedFields() {
         UIView.animate(withDuration: 1.5, animations: {
             // Animation Twit
@@ -78,13 +80,12 @@ class LoginController: UIViewController {
             self.login.alpha = 1
             self.password.alpha = 1
             self.loginButton.alpha = 1
+            self.registrationButton.alpha = 1
             
-            self.login.alpha = 1
-            self.password.alpha = 1
-            self.loginButton.alpha = 1
             self.login.frame = self.login.frame.offsetBy(dx: 0, dy: -20)
             self.password.frame = self.password.frame.offsetBy(dx: 0, dy: -20)
-            self.loginButton.frame = self.loginButton.frame.offsetBy(dx: 0, dy: -20)
+            self.loginButton.frame = self.loginButton.frame.offsetBy(dx: 0, dy: 10)
+            self.registrationButton.frame = self.registrationButton.frame.offsetBy(dx: 0, dy: 10)
         })
     }
     
@@ -98,24 +99,21 @@ class LoginController: UIViewController {
         
         let gradientColors: [CGColor] = [color1.cgColor, color2.cgColor, color3.cgColor, color4.cgColor]
         let gradientLocations: [Float] = [0.0, 0.25, 0.75, 1.0]
-        
         let gradientLayer: CAGradientLayer = CAGradientLayer()
         gradientLayer.colors = gradientColors
         gradientLayer.locations = gradientLocations as [NSNumber]
-        
         gradientLayer.frame = self.view.bounds
         self.view.layer.insertSublayer(gradientLayer, at: 0)
         
         loginButton.layer.cornerRadius = 5
+        loginButton.clipsToBounds = true
         loginButton.alpha = 0.0
+        registrationButton.layer.cornerRadius = 5
+        registrationButton.clipsToBounds = true
+        registrationButton.alpha = 0.0
         login.alpha = 0.0
         password.alpha = 0.0
-        
-        
         loginButton.setBackgroundImage(UIImage(color: .redInbox), for: .normal)
-        loginButton.isHidden = true
-        login.isHidden = true
-        password.isHidden = true
+
     }
 }
-

@@ -10,9 +10,11 @@ import UIKit
 
 class LoginControllerWithEffects: UIViewController {
     
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     override func viewDidLoad() {
         delay(1.0) {
             self.performSegue(withIdentifier: "LoginSegue", sender: self)
+            self.activityIndicator.stopAnimating()
         }
     }
     
