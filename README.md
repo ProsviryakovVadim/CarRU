@@ -2,7 +2,7 @@
 
 LOGIN:
 ---
-![](https://github.com/ProsviryakovVadim/CarRU/blob/master/login.gif?raw=true)
+![](https://github.com/ProsviryakovVadim/CarRU/blob/master/auth.gif?raw=true)
 
 WORK APP:
 ---
